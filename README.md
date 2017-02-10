@@ -8,7 +8,7 @@
 
 enable method:
 
-	sed -i 's/echo "$PWD"/echo -n "$PWD"/' cdpp.sh
+	sed -i 's/echo ${PWD/echo -n ${PWD/' cdpp.sh
 
 ## Install ##
 

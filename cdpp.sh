@@ -10,17 +10,34 @@ cdpp() {
 
   local cpath=$PWD
   declare -A idpath
-  echo "$PWD"
+
   for i in ${key[@]}; do
     cpath=${cpath%/*}
     if [[ -z "$cpath" ]]; then
       break
     fi
     idpath[$i]=$cpath
-    tput hpa ${#cpath}
-    printf "\e[1;31m$i\e[0m"
   done
+
+  cols=$(tput cols)
+  leftlen=0
+  idn=$(( ${#idpath[@]} - 1 ))
+  idy=0
+
+while (( $leftlen <= ${#PWD} )); do
+  echo ${PWD:$leftlen:$cols}
+  leftlen=$(( leftlen + cols ))
+  while (( idn >= 0 )); do
+    id=${key[idn]}
+    idx=$(( ${#idpath[$id]} - idy * cols ))
+    (( idx <= cols && idx >= 0 )) || break
+    tput hpa $idx
+    printf "\e[1;31m$id\e[0m"
+    (( idn-- ))
+  done
+  (( idy++ ))
   echo
+done
 
   read -s -n 1 id
   case ${!idpath[@]} in
