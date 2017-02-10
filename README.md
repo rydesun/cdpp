@@ -17,5 +17,5 @@ enable method:
 	source ~/.bashrc
 
 ### zsh user ###
-	sed -e '/^\s\+read/s/-n/-k/' -e 's/${!idpath\[@\]}/${(k)idpath}/' cdpp.sh >> ~/.zshrc
+	sed -e '/^\s\+read/s/-n/-k/' -e 's/${!idpath\[@\]}/${(k)idpath}/' -e 's/\(\${#idpath\[@\]}\) - 1/\1/' cdpp.sh >> ~/.zshrc
 	source ~/.zshrc
