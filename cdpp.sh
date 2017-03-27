@@ -10,6 +10,7 @@ cdpp() {
 
   while :; do
     local cpath=$PWD
+    [[ $cpath =~ ^$HOME ]] && cpath=${cpath/$HOME/'~'}
     unset idpath
     declare -A idpath
 
@@ -46,6 +47,7 @@ cdpp() {
       *$id*)
         cd ${idpath[$id]};;
     esac
+
     [[ -n ${cpath} && ${cpath//[^\/]} != '/' ]] || break
   done
 }
