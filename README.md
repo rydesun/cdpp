@@ -1,6 +1,8 @@
-# cd parent path ON SPEED! #
+# cdpp #
 
-cdpp is light and portable. It has only one dependency for query terminfo database: tput.
+cdpp, a shell function supporting one keystroke to change directory to parent path.
+
+cdpp is light and portable. It has only one dependency for querying terminfo database: tput.
 This means no demand for sed, awk, and so on.
 
 ## Ordinary Mode ##
