@@ -32,7 +32,7 @@ enable method:
 
 Q: How to quit cdpp immediately and keep current working directory?
 
-A: Press <kbd>Ctrl-C</kbd>.
+A: Press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
 Q: How to combine cdpp with other command temporarily and Don't change current working directory?
 
